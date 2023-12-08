@@ -1,10 +1,11 @@
 // ==UserScript==
 // @name         网页净化
 // @namespace    Scripts
-// @version      0.1.1
-// @description  净化平时用到的网页, 去除广告, 布局调整
+// @version      0.1.3
+// @description  净化平时用到的网页, 去除广告, 布局调整, 支持多个网站净化
 // @author       xiaomu-dev
 // @match        *://www.123pan.com/*
+// @match        *://*.runoob.com/*
 // @run-at document-start
 // @license Apache-2.0
 // ==/UserScript==
@@ -14,13 +15,16 @@
 
 	// 获取url
 	var hostname = window.location.hostname;
-	console.log(hostname);
 
 	// 匹配url
 	switch (hostname) {
 		case 'www.123pan.com':
 		case '123pan.com':
 			purify_123pan();
+			break;
+
+		case 'c.runoob.com':
+			purify_runoob();
 			break;
 
 		default:
@@ -48,5 +52,12 @@
 		`;
 		insertStyle(css);
 		log('已净化123网盘');
+	}
+	function purify_runoob() {
+		const css = `
+			.runoob-page-content ~ div.row{display:none !important}
+		`;
+		insertStyle(css);
+		log('已净化菜鸟工具');
 	}
 })();

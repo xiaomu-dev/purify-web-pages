@@ -1,0 +1,4 @@
+/* 工具页最下方广告 */
+.runoob-page-content ~ div.row {
+	display: none !important;
+}
