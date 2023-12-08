@@ -1,0 +1,22 @@
+/* 首页广告 */
+.baidu-banner-container {
+	display: none !important;
+}
+.baidu-banner-container + div {
+	display: none !important;
+}
+/* 首页列表高度 */
+.site-layout-background {
+	padding: 20px !important;
+}
+.ant-table-body {
+	max-height: calc(100vh - 220px) !important;
+}
+/* 分享页广告 */
+.banner-container-pc {
+	display: none !important;
+}
+/* 分享页列表高度 */
+.contentBorder {
+	height: calc(100vh - 100px) !important;
+}

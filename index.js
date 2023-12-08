@@ -34,16 +34,20 @@
 		const css2 = 'background: #f7971d; padding:5px 0; border-radius: 0 3px 3px 0; color: #000';
 		console.log(info, css1, css2);
 	}
+	// 插入样式
+	function insertStyle(css) {
+		// 123网盘
+		let style = document.createElement('style');
+		style.innerHTML = css;
+		document.head.appendChild(style);
+	}
 
 	// 网页净化
 	function purify_123pan() {
-		// 123网盘
-		let style = document.createElement('style');
-		style.innerHTML = `
-			.baidu-banner-container { display: none !important; }
-			.baidu-banner-container + div { display: none !important; }
+		const css = `
+			.baidu-banner-container{display:none !important}.baidu-banner-container + div{display:none !important}.site-layout-background{padding:20px !important}.ant-table-body{max-height:calc(100vh - 220px) !important}.banner-container-pc{display:none !important}.contentBorder{height:calc(100vh - 100px) !important}
 		`;
-		document.head.appendChild(style);
+		insertStyle(css);
 		log('已净化123网盘');
 	}
 })();
