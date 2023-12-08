@@ -1,12 +1,12 @@
 // ==UserScript==
 // @name         网页净化
 // @namespace    Scripts
-// @version      0.1
+// @version      0.1.1
 // @description  净化平时用到的网页, 去除广告, 布局调整
 // @author       xiaomu-dev
-// @match        *://*/*
+// @match        *://www.123pan.com/*
 // @run-at document-start
-// @license GPL
+// @license Apache-2.0
 // ==/UserScript==
 
 (function () {
