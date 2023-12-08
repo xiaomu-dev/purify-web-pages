@@ -36,7 +36,6 @@
 	}
 	// 插入样式
 	function insertStyle(css) {
-		// 123网盘
 		let style = document.createElement('style');
 		style.innerHTML = css;
 		document.head.appendChild(style);
