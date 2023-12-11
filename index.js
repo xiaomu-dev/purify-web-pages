@@ -1,11 +1,12 @@
 // ==UserScript==
 // @name         网页净化
 // @namespace    Scripts
-// @version      0.1.3
+// @version      0.1.4
 // @description  净化平时用到的网页, 去除广告, 布局调整, 支持多个网站净化
 // @author       xiaomu-dev
 // @match        *://www.123pan.com/*
 // @match        *://*.runoob.com/*
+// @match        *://remeins.com/*
 // @run-at document-start
 // @license Apache-2.0
 // ==/UserScript==
@@ -25,6 +26,10 @@
 
 		case 'c.runoob.com':
 			purify_runoob();
+			break;
+
+		case 'remeins.com':
+			purify_remeins();
 			break;
 
 		default:
@@ -59,5 +64,12 @@
 		`;
 		insertStyle(css);
 		log('已净化菜鸟工具');
+	}
+	function purify_remeins() {
+		const css = `
+			.toolslove,.baseinfo,.google-auto-placed,.qpage > div.start.p0.vmxform:first-of-type,.wwads-cn.wwads-horizontal{display:none !important}
+		`;
+		insertStyle(css);
+		log('已净化记灵工具');
 	}
 })();
