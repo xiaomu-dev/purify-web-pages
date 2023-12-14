@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         网页净化
 // @namespace    Scripts
-// @version      0.1.7
-// @description  净化平时用到的网页, 去除广告, 布局调整, 支持多个网站净化
+// @version      0.1.8
+// @description  净化平时用到的网页, 去除广告, 布局调整, 支持多个网站净化, 长期更新, 有需要的网址可以反馈
 // @author       xiaomu-dev
 // @match        *://www.123pan.com/*
 // @match        *://*.runoob.com/*
@@ -10,6 +10,8 @@
 // @match        *://*.ahhhhfs.com/*
 // @match        *://*.speedtest.cn/*
 // @match        *://*.ghxi.com/*
+// @match        *://*.alipansou.com/*
+// @match        *://xiongdipan.com/*
 // @run-at document-start
 // @license Apache-2.0
 // ==/UserScript==
@@ -51,11 +53,23 @@
 			purify_ghxi();
 			break;
 
+		case 'www.alipansou.com':
+		case 'xiongdipan.com':
+			purify_alipansou();
+			break;
+
 		default:
 			break;
 	}
 
 	// 网页净化
+	function purify_alipansou() {
+		const css = `
+		.google-auto-placed,#app > div:last-child > div:first-child > div:first-child > div:nth-child(2){display:none !important}
+		`;
+		insertStyle(css);
+		log('已净化猫狸盘搜 | 兄弟盘');
+	}
 	function purify_ghxi() {
 		const css = `
 			#modules-13,#modules-15,#modules-16,#modules-20,#modules-23,#modules-24,#modules-25,#modules-26,.sidebar.sidebar-on-right .widget_image_ad,.sidebar.sidebar-on-right .widget_comments,footer,.entry-related-posts,.wpcom_ad_wrap,.sidebar .widget_comments,.sidebar .widget_post_thumb,.sidebar .widget_html_ad,.webcopyMask + div:not([class]),.webcopyMask + #login-modal + div:not([class]){display:none !important}

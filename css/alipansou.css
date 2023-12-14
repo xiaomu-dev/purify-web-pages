@@ -1,0 +1,6 @@
+/* https://www.alipansou.com/ */
+/* https://xiongdipan.com/ */
+.google-auto-placed,
+#app > div:last-child > div:first-child > div:first-child > div:nth-child(2) {
+	display: none !important;
+}
