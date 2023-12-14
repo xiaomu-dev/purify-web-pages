@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         网页净化
 // @namespace    Scripts
-// @version      0.1.6
+// @version      0.1.7
 // @description  净化平时用到的网页, 去除广告, 布局调整, 支持多个网站净化
 // @author       xiaomu-dev
 // @match        *://www.123pan.com/*
@@ -9,6 +9,7 @@
 // @match        *://remeins.com/*
 // @match        *://*.ahhhhfs.com/*
 // @match        *://*.speedtest.cn/*
+// @match        *://*.ghxi.com/*
 // @run-at document-start
 // @license Apache-2.0
 // ==/UserScript==
@@ -46,33 +47,22 @@
 			purify_speedtest();
 			break;
 
+		case 'www.ghxi.com':
+			purify_ghxi();
+			break;
+
 		default:
 			break;
 	}
 
-	// 打印
-	function log(log) {
-		const info = '\n'.concat(' %c ', '小木').concat(' %c ', log, '  \n');
-		const css1 = 'background: #000000; padding:5px 0; border-radius: 3px 0 0 3px; color: #fff';
-		const css2 = 'background: #f7971d; padding:5px 0; border-radius: 0 3px 3px 0; color: #000';
-		console.log(info, css1, css2);
-	}
-	// 插入样式
-	function insertStyle(css) {
-		let style = document.createElement('style');
-		style.innerHTML = css;
-		document.head.appendChild(style);
-	}
-	// 插入js
-	function insertJS(js) {
-		const script = document.createElement('script');
-		script.text = 'window.addEventListener("load", (event) => {';
-		script.text += js;
-		script.text += '});';
-		document.head.appendChild(script);
-	}
-
 	// 网页净化
+	function purify_ghxi() {
+		const css = `
+			#modules-13,#modules-15,#modules-16,#modules-20,#modules-23,#modules-24,#modules-25,#modules-26,.sidebar.sidebar-on-right .widget_image_ad,.sidebar.sidebar-on-right .widget_comments,footer,.entry-related-posts,.wpcom_ad_wrap,.sidebar .widget_comments,.sidebar .widget_post_thumb,.sidebar .widget_html_ad,.webcopyMask + div:not([class]),.webcopyMask + #login-modal + div:not([class]){display:none !important}
+		`;
+		insertStyle(css);
+		log('已净化果核剥壳');
+	}
 	function purify_123pan() {
 		const css = `
 			.baidu-banner-container{display:none !important}.baidu-banner-container + div{display:none !important}.site-layout-background{padding:20px !important}.ant-table-body{max-height:calc(100vh - 220px) !important}.banner-container-pc{display:none !important}.contentBorder{height:calc(100vh - 100px) !important}
@@ -112,5 +102,27 @@
 		`;
 		insertStyle(css);
 		log('已净化测速网');
+	}
+
+	// 打印
+	function log(log) {
+		const info = '\n'.concat(' %c ', '小木').concat(' %c ', log, '  \n');
+		const css1 = 'background: #000000; padding:5px 0; border-radius: 3px 0 0 3px; color: #fff';
+		const css2 = 'background: #f7971d; padding:5px 0; border-radius: 0 3px 3px 0; color: #000';
+		console.log(info, css1, css2);
+	}
+	// 插入样式
+	function insertStyle(css) {
+		let style = document.createElement('style');
+		style.innerHTML = css;
+		document.head.appendChild(style);
+	}
+	// 插入js
+	function insertJS(js) {
+		const script = document.createElement('script');
+		script.text = 'window.addEventListener("load", (event) => {';
+		script.text += js;
+		script.text += '});';
+		document.head.appendChild(script);
 	}
 })();

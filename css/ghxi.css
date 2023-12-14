@@ -1,0 +1,21 @@
+/* https://www.ghxi.com/ */
+#modules-13,
+#modules-15,
+#modules-16,
+#modules-20,
+#modules-23,
+#modules-24,
+#modules-25,
+#modules-26,
+.sidebar.sidebar-on-right .widget_image_ad,
+.sidebar.sidebar-on-right .widget_comments,
+footer,
+.entry-related-posts,
+.wpcom_ad_wrap,
+.sidebar .widget_comments,
+.sidebar .widget_post_thumb,
+.sidebar .widget_html_ad,
+.webcopyMask + div:not([class]),
+.webcopyMask + #login-modal + div:not([class]) {
+	display: none !important;
+}
