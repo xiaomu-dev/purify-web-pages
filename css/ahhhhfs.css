@@ -1,0 +1,12 @@
+/* 广告隐藏 */
+.adsbygoogle.adsbygoogle-noablate,
+#ri_home_slider_widget-2,
+.site-addswarp {
+	display: none !important;
+	z-index: -9999 !important;
+}
+/* 右下角侧边条 */
+.rollbar .actions li:nth-last-child(2),
+.rollbar .actions li:last-child {
+	display: none !important;
+}

@@ -1,12 +1,13 @@
 // ==UserScript==
 // @name         网页净化
 // @namespace    Scripts
-// @version      0.1.4
+// @version      0.1.5
 // @description  净化平时用到的网页, 去除广告, 布局调整, 支持多个网站净化
 // @author       xiaomu-dev
 // @match        *://www.123pan.com/*
 // @match        *://*.runoob.com/*
 // @match        *://remeins.com/*
+// @match        *://*.ahhhhfs.com/*
 // @run-at document-start
 // @license Apache-2.0
 // ==/UserScript==
@@ -32,6 +33,11 @@
 			purify_remeins();
 			break;
 
+		case 'www.ahhhhfs.com':
+		case 'ahhhhfs.com':
+			purify_ahhhhfs();
+			break;
+
 		default:
 			break;
 	}
@@ -48,6 +54,14 @@
 		let style = document.createElement('style');
 		style.innerHTML = css;
 		document.head.appendChild(style);
+	}
+	// 插入js
+	function insertJS(js) {
+		const script = document.createElement('script');
+		script.text = 'window.addEventListener("load", (event) => {';
+		script.text += js;
+		script.text += '});';
+		document.head.appendChild(script);
 	}
 
 	// 网页净化
@@ -71,5 +85,17 @@
 		`;
 		insertStyle(css);
 		log('已净化记灵工具');
+	}
+	function purify_ahhhhfs() {
+		const js = `
+		const url=window.location.href;console.log(url);const hasGV=url.includes('#google_vignette');if(hasGV){console.log('包含 #google_vignette');const dismissButton=document.getElementById('dismiss-button');if(dismissButton){console.log(dismissButton)}else{console.log('未找到 dismiss-button 元素')}}const elements=document.getElementsByClassName('.adsbygoogle.adsbygoogle-noablate');if(elements.length>0){console.log(elements);elements.remove()}else{console.log('未找到指定的元素')}
+		`;
+		insertJS(js);
+
+		const css = `
+		.adsbygoogle.adsbygoogle-noablate,#ri_home_slider_widget-2,.site-addswarp{display:none !important;z-index:-9999 !important}.rollbar .actions li:nth-last-child(2),.rollbar .actions li:last-child{display:none !important}
+		`;
+		insertStyle(css);
+		log('已净化A姐分享站');
 	}
 })();
