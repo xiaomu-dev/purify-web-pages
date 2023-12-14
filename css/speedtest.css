@@ -1,0 +1,42 @@
+/* https://www.speedtest.cn/ */
+.speed-twoads481-wrap.speed-twoads481-wrap-index,
+.speed-home-content .vertisingSpace,
+.speed-home-content .speed-bottom-ads,
+#speedApp,
+#Video,
+#Video + .swiper-view,
+#Network,
+.contentMinHeight.section_wrap .container,
+.contentMinHeight.section_wrap .speed-twoads-wrap,
+footer,
+.sus-window,
+.nav-item.jiasu2_nav,
+.nav-item.mall_nav {
+	display: none !important;
+}
+
+/* https://www.speedtest.cn/tools/game */
+.pingContainer .tool-content-left,
+.pingContainer .tool-content-right {
+	display: none !important;
+}
+
+/* https://www.speedtest.cn/tools */
+.speed-twoads481-wrap,
+.tools .tools-content-box .right-ads,
+.tools .more-tools-list-index,
+.tools .download {
+	display: none !important;
+}
+
+/* https://5g.speedtest.cn/ */
+.header .box .tab,
+.rank.rank-5g .ad-w300-h250-index,
+.rank.rank-5g .ad-w300-h250-other,
+#Information,
+#Information + .wgcard,
+#Information + .wgcard + a,
+#Equipment,
+#Equipment + .equipment-content {
+	display: none !important;
+}
