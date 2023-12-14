@@ -1,0 +1,11 @@
+/* https://pan.baidu.com/ */
+.wp-s-header .nd-chat-ai-btn,
+.wp-s-header .nd-game-entry,
+.wp-s-header .nd-sug-ad-item,
+.wp-s-header .nd-vip-btn,
+.wp-s-header .chat-with-sug,
+#mainContainer .chat-with-sug,
+#mainContainer .header-container__chatpdf-open,
+.yike-entrance {
+	display: none !important;
+}

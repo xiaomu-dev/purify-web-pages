@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         网页净化
 // @namespace    Scripts
-// @version      0.1.8
+// @version      0.1.9
 // @description  净化平时用到的网页, 去除广告, 布局调整, 支持多个网站净化, 长期更新, 有需要的网址可以反馈
 // @author       xiaomu-dev
 // @match        *://www.123pan.com/*
@@ -12,6 +12,7 @@
 // @match        *://*.ghxi.com/*
 // @match        *://*.alipansou.com/*
 // @match        *://xiongdipan.com/*
+// @match        *://pan.baidu.com/*
 // @run-at document-start
 // @license Apache-2.0
 // ==/UserScript==
@@ -58,14 +59,25 @@
 			purify_alipansou();
 			break;
 
+		case 'pan.baidu.com':
+			purify_baidupan();
+			break;
+
 		default:
 			break;
 	}
 
 	// 网页净化
+	function purify_baidupan() {
+		const css = `
+			.wp-s-header .nd-chat-ai-btn,.wp-s-header .nd-game-entry,.wp-s-header .nd-sug-ad-item,.wp-s-header .nd-vip-btn,.wp-s-header .chat-with-sug,#mainContainer .chat-with-sug,#mainContainer .header-container__chatpdf-open,.yike-entrance{display:none !important}
+		`;
+		insertStyle(css);
+		log('已净化百度网盘');
+	}
 	function purify_alipansou() {
 		const css = `
-		.google-auto-placed,#app > div:last-child > div:first-child > div:first-child > div:nth-child(2){display:none !important}
+			.google-auto-placed,#app > div:last-child > div:first-child > div:first-child > div:nth-child(2){display:none !important}
 		`;
 		insertStyle(css);
 		log('已净化猫狸盘搜 | 兄弟盘');
